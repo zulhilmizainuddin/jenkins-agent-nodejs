@@ -51,5 +51,9 @@ docker build -t jenkins-agent:latest .
 
 ### Start the Jenkins agent with Docker mounted from host machine
 ```
-docker run -v $(which docker):/usr/bin/docker -v /var/run/docker.sock:/var/run/docker.sock -v /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/libltdl.so.7 jenkins-agent:latest -url http://172.17.0.1:8080 <secret> <agent name>
+docker run \
+    -v $(which docker):/usr/bin/docker \
+    -v /var/run/docker.sock:/var/run/docker.sock \
+    -v /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/libltdl.so.7 \
+    jenkins-agent:latest -url http://172.17.0.1:8080 <secret> <agent name>
 ```
