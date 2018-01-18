@@ -1,6 +1,6 @@
 # jenkins-agent-nodejs
 
-Build and setup Jenkins agent Docker image with Node.js installed and Docker mounted from host machine.
+Build and setup Jenkins JNLP agent Docker image with Node.js installed and Docker mounted from host machine.
 
 ## Prerequisite
 - Ubuntu 16.04 LTS (Xenial Xerus)
