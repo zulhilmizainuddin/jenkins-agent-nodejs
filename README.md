@@ -2,6 +2,14 @@
 
 Build and setup Jenkins JNLP agent Docker image with Node.js installed and Docker mounted from host machine.
 
+## Docker Hub image
+Docker image available at https://hub.docker.com/r/zulhilmizainuddin/jenkins-agent-nodejs/
+
+Docker pull command
+```
+docker pull zulhilmizainuddin/jenkins-agent-nodejs
+```
+
 ## Prerequisite
 - Ubuntu 16.04 LTS (Xenial Xerus)
 - Docker version 17.12.0-ce
@@ -39,9 +47,15 @@ docker run -p 8080:8080 -p 50000:50000 jenkins/jenkins:lts
 
 ## Jenkins Agent
 
-### Build the Jenkins agent image
+### Build or pull the Jenkins agent image
 ```
-docker build -t jenkins-agent:latest .
+docker build -t jenkins-agent-nodejs:latest .
+```
+
+or
+
+```
+docker pull zulhilmizainuddin/jenkins-agent-nodejs
 ```
 
 ### Start the Jenkins agent with Docker mounted from host machine
@@ -50,5 +64,5 @@ docker run \
     -v $(which docker):/usr/bin/docker \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -v /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/libltdl.so.7 \
-    jenkins-agent:latest -url http://172.17.0.1:8080 <secret> <agent name>
+    jenkins-agent-nodejs:latest -url http://172.17.0.1:8080 <secret> <agent name>
 ```
