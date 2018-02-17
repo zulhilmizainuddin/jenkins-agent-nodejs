@@ -8,9 +8,13 @@ RUN apt-get update && \
 
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get install -y nodejs && \
-    npm install -g typescript yarn
+    npm install -g typescript yarn && \
+    chown -R jenkins:jenkins /home/jenkins/.config && \
+    chown -R jenkins:jenkins /home/jenkins/.npm
 
 USER jenkins
+
+RUN mkdir -p /home/jenkins/scripts
 
 ENV PATH="/home/jenkins/scripts:$PATH"
 
